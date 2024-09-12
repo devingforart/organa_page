@@ -1,0 +1,63 @@
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\App.tsx
+
+Contenido:
+
+import './App.css'
+import MainPage from './components/MainPage'
+function App() {
+
+  return (
+    <>
+      <MainPage />
+    </>
+  )
+}
+
+export default App
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\main.tsx
+
+Contenido:
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\vite-env.d.ts
+
+Contenido:
+/// <reference types="vite/client" />
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\MainPage.tsx
+
+Contenido:
+
+function App() {
+
+  return (
+    <>
+sa
+    </>
+  )
+}
+
+export default App
+
+
+--------------------------------------------------------------------------------
+
