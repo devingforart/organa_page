@@ -12,8 +12,24 @@ const AppBar: React.FC = () => {
   const dispatch = useDispatch();
   const selectedKey = useSelector((state: RootState) => state.menu.selectedKey);
 
-  const handleMenuClick = (key: string) => {
-    dispatch(selectMenuItem(key));
+  const handleMenuClick = async (key: string) => {
+    if (key === '5') {
+      try {
+        // Hacer una solicitud a la API de GitHub para obtener el último release
+        const response = await fetch('https://api.github.com/repos/devingforart/organa_updater/releases/latest');
+        const data = await response.json();
+
+        // Obtener el nombre del archivo del primer asset del release
+        const downloadUrl = data.assets[0].browser_download_url;
+
+        // Redirigir a la descarga del archivo
+        window.location.href = downloadUrl;
+      } catch (error) {
+        console.error('Error al obtener el último release:', error);
+      }
+    } else {
+      dispatch(selectMenuItem(key));
+    }
   };
 
   const menuItems = [
@@ -21,7 +37,7 @@ const AppBar: React.FC = () => {
     { key: '2', label: 'About' },
     { key: '3', label: 'Services' },
     { key: '4', label: 'Contact' },
-    { key: '5', label: 'Download' },
+    { key: '5', label: 'Download' },  // Botón de "Download" que descarga el último release
   ];
 
   const dropdownMenuItems = [
