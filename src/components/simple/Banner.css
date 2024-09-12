@@ -1,7 +1,7 @@
 .banner-container {
   position: relative;
-  background-image: url('https://via.placeholder.com/1920x800');
-  /* Fondo ajustado */
+/*   background-image: url('https://via.placeholder.com/1920x800');
+ */  /* Fondo ajustado */
   background-size: cover;
   background-position: center;
   height: 400px;
