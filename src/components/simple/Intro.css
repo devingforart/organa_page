@@ -1,0 +1,18 @@
+.intro-container {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  .intro-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .intro-paragraph {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+  }
+  

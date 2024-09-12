@@ -97,20 +97,18 @@ const AppBar: React.FC = () => {
     dispatch(selectMenuItem(key));
   };
 
-  // Definir el menú como un objeto MenuProps
+  const menuItems = [
+    { key: '1', label: 'Home' },
+    { key: '2', label: 'About' },
+    { key: '3', label: 'Services' },
+    { key: '4', label: 'Contact' },
+    { key: '5', label: 'Download' },
+  ];
+
   const dropdownMenuItems = [
-    {
-      key: '1',
-      label: 'Profile',
-    },
-    {
-      key: '2',
-      label: 'Settings',
-    },
-    {
-      key: '3',
-      label: 'Logout',
-    },
+    { key: '1', label: 'Profile' },
+    { key: '2', label: 'Settings' },
+    { key: '3', label: 'Logout' },
   ];
 
   return (
@@ -125,21 +123,13 @@ const AppBar: React.FC = () => {
       </div>
       <Menu
         mode="horizontal"
-        selectedKeys={[selectedKey]} 
+        selectedKeys={[selectedKey]}
         className="menu-items"
         onClick={(e) => handleMenuClick(e.key)}
-      >
-        <Menu.Item key="1">Home</Menu.Item>
-        <Menu.Item key="2">About</Menu.Item>
-        <Menu.Item key="3">Services</Menu.Item>
-        <Menu.Item key="4">Contact</Menu.Item>
-        <Menu.Item key="5">Download</Menu.Item>
-      </Menu>
+        items={menuItems}
+      />
       <div className="avatar-section">
-        <Dropdown 
-          menu={{ items: dropdownMenuItems }}  // Usar la sintaxis correcta para "menu"
-          trigger={['click']}
-        >
+        <Dropdown menu={{ items: dropdownMenuItems }} trigger={['click']}>
           <Avatar size="large" icon={<UserOutlined />} />
         </Dropdown>
       </div>
@@ -207,18 +197,77 @@ export default Banner;
 
 --------------------------------------------------------------------------------
 
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\Features.tsx
+
+Contenido:
+import React from 'react';
+import { Row, Col, Card, Typography } from 'antd';
+import './Features.css';
+
+const { Meta } = Card;
+
+const features = [
+  {
+    title: 'Fácil de Usar',
+    description: 'Organa está diseñada para ser intuitiva y fácil de usar desde el primer momento.',
+    image: '/src/assets/images/image.png',
+  },
+  {
+    title: 'Optimización Automática',
+    description: 'Automatiza tus procesos y mejora la eficiencia de tu negocio con nuestras herramientas avanzadas.',
+    image: '/src/assets/images/image2.png',
+  },
+  {
+    title: 'Integración Total',
+    description: 'Se integra perfectamente con las herramientas más utilizadas para que no tengas que cambiar nada.',
+    image: '/src/assets/images/image3.png',
+  },
+  {
+    title: 'Seguridad de Datos',
+    description: 'Tus datos están siempre seguros con nuestra tecnología de encriptación avanzada.',
+    image: '/src/assets/images/image4.png',
+  },
+];
+
+const Features: React.FC = () => {
+  return (
+    <div className="features-container">
+      <Typography className="features-title">Gestiona tus actividades diarias</Typography>
+      <Row gutter={[16, 16]}>
+        {features.map((feature, index) => (
+          <Col xs={24} sm={12} md={6} key={index}>
+            <Card
+              hoverable
+              cover={<img alt={feature.title} src={feature.image} />}
+              className="feature-card"
+            >
+              <Meta title={feature.title} description={feature.description} />
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </div>
+  );
+};
+
+export default Features;
+
+
+--------------------------------------------------------------------------------
+
 C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\MainPage.tsx
 
 Contenido:
 import AppBar from "./AppBar"
 import Banner from "./Banner"
+import Features from "./Features"
 function App() {
 
   return (
     <>
       <AppBar />
       <Banner />
-
+      <Features />
     </>
   )
 }
