@@ -1,0 +1,70 @@
+.banner-container {
+  position: relative;
+  background-image: url('https://via.placeholder.com/1920x800');
+  /* Fondo ajustado */
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(198, 204, 255, 0.493);
+  /* Superposición oscura */
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+
+.banner-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transform: translateY(20px);
+  /* Ajuste inicial para el movimiento */
+}
+
+.banner-title.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.banner-title.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+  /* Efecto de salida */
+}
+
+.banner-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.banner-button {
+  background-color: #1890ff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.banner-button:hover {
+  background-color: #40a9ff;
+}

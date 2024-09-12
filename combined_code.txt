@@ -3,7 +3,7 @@ C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\App.tsx
 Contenido:
 
 import './App.css'
-import MainPage from './components/MainPage'
+import MainPage from './components/simple/MainPage'
 function App() {
 
   return (
@@ -21,17 +21,50 @@ export default App
 C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\main.tsx
 
 Contenido:
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import App from './App.tsx';
+import './index.css';
+import { store } from './store'; // Importar el store
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </StrictMode>,
-)
+);
 
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\store.ts
+
+Contenido:
+import { configureStore } from '@reduxjs/toolkit';
+import menuReducer from './features/menuSlice';
+
+export const store = configureStore({
+  reducer: {
+    menu: menuReducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\types.ts
+
+Contenido:
+export interface AppBarProps {
+    title: string;
+    items: Array<{ label: string; href: string }>;
+  }
+  
 
 --------------------------------------------------------------------------------
 
@@ -43,20 +76,184 @@ Contenido:
 
 --------------------------------------------------------------------------------
 
-C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\MainPage.tsx
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\AppBar.tsx
 
 Contenido:
+import React from 'react';
+import { Layout, Menu, Avatar, Dropdown, Button } from 'antd';
+import { MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { selectMenuItem } from '../../features/menuSlice';
+import './AppBar.css';
 
+const { Header } = Layout;
+
+const AppBar: React.FC = () => {
+  const dispatch = useDispatch();
+  const selectedKey = useSelector((state: RootState) => state.menu.selectedKey);
+
+  const handleMenuClick = (key: string) => {
+    dispatch(selectMenuItem(key));
+  };
+
+  // Definir el menú como un objeto MenuProps
+  const dropdownMenuItems = [
+    {
+      key: '1',
+      label: 'Profile',
+    },
+    {
+      key: '2',
+      label: 'Settings',
+    },
+    {
+      key: '3',
+      label: 'Logout',
+    },
+  ];
+
+  return (
+    <Header className="appbar-header">
+      <div className="logo">Organa</div>
+      <div className="menu-toggle">
+        <Button
+          type="primary"
+          icon={<MenuUnfoldOutlined />}
+          className="mobile-menu-icon"
+        />
+      </div>
+      <Menu
+        mode="horizontal"
+        selectedKeys={[selectedKey]} 
+        className="menu-items"
+        onClick={(e) => handleMenuClick(e.key)}
+      >
+        <Menu.Item key="1">Home</Menu.Item>
+        <Menu.Item key="2">About</Menu.Item>
+        <Menu.Item key="3">Services</Menu.Item>
+        <Menu.Item key="4">Contact</Menu.Item>
+        <Menu.Item key="5">Download</Menu.Item>
+      </Menu>
+      <div className="avatar-section">
+        <Dropdown 
+          menu={{ items: dropdownMenuItems }}  // Usar la sintaxis correcta para "menu"
+          trigger={['click']}
+        >
+          <Avatar size="large" icon={<UserOutlined />} />
+        </Dropdown>
+      </div>
+    </Header>
+  );
+};
+
+export default AppBar;
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\Banner.tsx
+
+Contenido:
+import React, { useState, useEffect } from 'react';
+import { Button, Typography } from 'antd';
+import './Banner.css';
+
+const { Title, Paragraph } = Typography;
+
+const Banner: React.FC = () => {
+  const messages = [
+    '¡Bienvenido a Organa!',
+    'Optimiza tus procesos.',
+    'Mejora tu productividad.',
+    'Descubre lo que Organa puede hacer por ti.',
+  ];
+
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimate(true);
+      setTimeout(() => {
+        setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
+        setAnimate(false);
+      }, 1000); // Duración de la animación
+    }, 4000); // Cambia el texto cada 4 segundos (1s para la animación y 3s visible)
+
+    return () => clearInterval(interval);
+  }, [messages.length]);
+
+  return (
+    <div className="banner-container">
+      <div className="banner-overlay" />
+      <div className="banner-content">
+        <Title className={`banner-title ${animate ? 'fade-out' : 'fade-in'}`}>
+          {messages[currentMessageIndex]}
+        </Title>
+        <Paragraph className="banner-description">
+          ¡Aprovecha nuestra solución innovadora hoy mismo!
+        </Paragraph>
+        <Button type="primary" size="large" className="banner-button">
+          Más Información
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default Banner;
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\MainPage.tsx
+
+Contenido:
+import AppBar from "./AppBar"
+import Banner from "./Banner"
 function App() {
 
   return (
     <>
-sa
+      <AppBar />
+      <Banner />
+
     </>
   )
 }
 
 export default App
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\features\menuSlice.ts
+
+Contenido:
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface MenuState {
+  selectedKey: string;
+}
+
+const initialState: MenuState = {
+  selectedKey: localStorage.getItem('selectedMenuItem') || '1', // Recuperar del localStorage
+};
+
+const menuSlice = createSlice({
+  name: 'menu',
+  initialState,
+  reducers: {
+    selectMenuItem: (state, action: PayloadAction<string>) => {
+      state.selectedKey = action.payload;
+      localStorage.setItem('selectedMenuItem', action.payload); // Guardar en localStorage
+    },
+  },
+});
+
+export const { selectMenuItem } = menuSlice.actions;
+export default menuSlice.reducer;
 
 
 --------------------------------------------------------------------------------
