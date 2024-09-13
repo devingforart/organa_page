@@ -12,7 +12,7 @@ individual_files = [
 ]
 
 # Define las extensiones de archivos que te interesan
-file_extensions = ['.tsx', '.rs', '.ts']
+file_extensions = ['.tsx', '.rs', '.ts', '.css']
 
 # Archivo de salida donde se copiará todo el código
 output_file = 'combined_code.txt'

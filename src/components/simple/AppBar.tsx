@@ -16,37 +16,33 @@ const AppBar: React.FC = () => {
   const selectedKey = useSelector((state: RootState) => state.menu.selectedKey);
   const navigate = useNavigate(); // Para navegar entre rutas
 
-  const handleMenuClick = async (key: string) => {
-    if (key === '5') {
-      try {
-        const response = await fetch('https://api.github.com/repos/devingforart/organa_updater/releases/latest');
-        const data = await response.json();
-        const downloadUrl = data.assets[0].browser_download_url;
-        window.location.href = downloadUrl;
-      } catch (error) {
-        console.error('Error al obtener el último release:', error);
-      }
-    } else {
-      dispatch(selectMenuItem(key));
-      switch (key) {
-        case '1':
-          navigate('/');
-          break;
-        case '2':
-          navigate('/about');
-          break;
-        case '3':
-          navigate('/services');
-          break;
-        case '4':
-          navigate('/contact');
-          break;
-        default:
-          break;
-      }
+  const handleMenuClick = (key: string) => {
+    dispatch(selectMenuItem(key));
+
+    switch (key) {
+      case '1':
+        navigate('/');
+        break;
+      case '2':
+        navigate('/about');
+        break;
+      case '3':
+        navigate('/services');
+        break;
+      case '4':
+        navigate('/contact');
+        break;
+      case '5': // Redirige a la página de descargas
+        navigate('/download');
+        break;
+      default:
+        break;
     }
-    setDrawerVisible(false);
+
+    setDrawerVisible(false); // Cerrar el drawer en dispositivos móviles
   };
+
+
 
   const menuItems = [
     { key: '1', label: 'Inicio' },
@@ -80,7 +76,7 @@ const AppBar: React.FC = () => {
         onClick={(e) => handleMenuClick(e.key)}
         items={menuItems}
       />
-  {/*     <div className="avatar-section">
+      {/*     <div className="avatar-section">
         <Dropdown menu={{ items: dropdownMenuItems }} trigger={['click']}>
           <Avatar size="large" icon={<UserOutlined />} />
         </Dropdown>

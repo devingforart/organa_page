@@ -1,3 +1,10 @@
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\App.css
+
+Contenido:
+
+
+--------------------------------------------------------------------------------
+
 C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\App.tsx
 
 Contenido:
@@ -23,6 +30,13 @@ function App() {
 }
 
 export default App;
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\index.css
+
+Contenido:
 
 
 --------------------------------------------------------------------------------
@@ -85,6 +99,167 @@ Contenido:
 
 --------------------------------------------------------------------------------
 
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\ImageLanding.css
+
+Contenido:
+/* Asegura que la imagen esté centrada y no cause overflow */
+.intro-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente si es necesario */
+    padding: 20px;
+    overflow-x: hidden; /* Evita el overflow horizontal */
+  }
+  
+  .landing-image {
+    width: auto; /* Ajusta el ancho dinámicamente */
+    height: auto; /* Ajusta la altura según el aspecto de la imagen */
+    max-width: 100%; /* Evita que la imagen sea más grande que el contenedor */
+    object-fit: contain; /* Mantén las proporciones sin recortar */
+    display: block; /* Para asegurarse de que la imagen no se considere inline */
+  }
+  
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\ImageLanding.tsx
+
+Contenido:
+import React from 'react';
+import './ImageLanding.css';
+
+const imageSrc = 'src/assets/images/organa_landing.png';
+
+const Intro: React.FC = () => {
+  return (
+    <div className="intro-container">
+      <img className="landing-image" src={imageSrc} alt="Organa Landing" />
+    </div>
+  );
+};
+
+export default Intro;
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\About.css
+
+Contenido:
+.about-container {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.about-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #a6c3eb;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color:  #4273b3 !important;  
+}
+
+.about-paragraph {
+  font-size: 18px;
+  color: #4a4a4a;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  font-family: 'Lato', sans-serif;
+  
+}
+
+.section {
+  margin-top: 100px;
+  text-align: left;
+  box-shadow:  11px 0px rgb(167, 205, 243);
+
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: 600;
+  color:  #4273b3 !important;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+.ant-card {
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #ffffff;
+  box-shadow:  0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 40px !important;
+  margin: 5px;
+
+
+}
+
+.ant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ant-card-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.ant-card-title {
+  font-weight: 600;
+  color: #1a237e;
+}
+
+.ant-card p {
+  font-size: 16px;
+  color: #4a4a4a;
+}
+
+.ant-card p:last-child {
+  font-size: 14px;
+  color: #5a6d87;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.ant-row {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 30px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .about-paragraph {
+    font-size: 16px;
+   
+  }
+
+  .ant-card {
+    margin-bottom: 20px;
+  }
+}
+
+
+--------------------------------------------------------------------------------
+
 C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\About.tsx
 
 Contenido:
@@ -122,7 +297,7 @@ const About: React.FC = () => {
               hoverable
               title="Grabación en tiempo real"
               bordered={false}
-              className="feature-card"
+              className="about-card"
             >
               <Paragraph>
                 Captura audio y video de alta calidad en tiempo real durante tus reuniones y genera minutas automáticas con IA.
@@ -134,7 +309,7 @@ const About: React.FC = () => {
               hoverable
               title="Tablero Kanban"
               bordered={false}
-              className="feature-card"
+              className="about-card"
             >
               <Paragraph>
                 Organiza tus actividades diarias con un tablero Kanban visual que facilita la planificación y seguimiento de proyectos.
@@ -146,7 +321,7 @@ const About: React.FC = () => {
               hoverable
               title="Gestión de API Keys de IA"
               bordered={false}
-              className="feature-card"
+              className="about-card"
             >
               <Paragraph>
                 Conecta con diferentes modelos de IA utilizando tus propias claves API y personaliza los análisis y resúmenes.
@@ -195,6 +370,91 @@ export default About;
 
 --------------------------------------------------------------------------------
 
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\AppBar.css
+
+Contenido:
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #c4e0e5;
+  --accent-color: #a7bed3;
+  --text-color: #444;
+  --hover-color: #82b4b4;
+  --font-family: 'Poppins', sans-serif;
+}
+
+.appbar-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--primary-color);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+}
+
+.logo {
+  font-family: var(--font-family);
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--text-color);
+
+}
+
+.menu-items {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-family);
+}
+
+.menu-items .ant-menu-item {
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.menu-items .ant-menu-item:hover {
+  color: var(--hover-color);
+}
+
+.avatar-section {
+  margin-right: 20px;
+  margin-right: 40px;
+
+}
+
+.mobile-menu-icon {
+  display: none;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+
+
+@media (max-width: 768px) {
+  .menu-items {
+    display: none;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+}
+
+/* Dropdown Menu Styling */
+.ant-menu-item {
+  color: var(--text-color);
+}
+
+.ant-menu-item:hover {
+  background-color: var(--accent-color);
+}
+
+--------------------------------------------------------------------------------
+
 C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\AppBar.tsx
 
 Contenido:
@@ -208,38 +468,52 @@ import './AppBar.css';
 
 const { Header } = Layout;
 
+import { useNavigate } from 'react-router-dom';
+
 const AppBar: React.FC = () => {
-  const [drawerVisible, setDrawerVisible] = useState(false); // Estado para manejar el Drawer en móviles
+  const [drawerVisible, setDrawerVisible] = useState(false);
   const dispatch = useDispatch();
   const selectedKey = useSelector((state: RootState) => state.menu.selectedKey);
+  const navigate = useNavigate(); // Para navegar entre rutas
 
   const handleMenuClick = async (key: string) => {
     if (key === '5') {
       try {
-        // Hacer una solicitud a la API de GitHub para obtener el último release
         const response = await fetch('https://api.github.com/repos/devingforart/organa_updater/releases/latest');
         const data = await response.json();
-
-        // Obtener el nombre del archivo del primer asset del release
         const downloadUrl = data.assets[0].browser_download_url;
-
-        // Redirigir a la descarga del archivo
         window.location.href = downloadUrl;
       } catch (error) {
         console.error('Error al obtener el último release:', error);
       }
     } else {
       dispatch(selectMenuItem(key));
+      switch (key) {
+        case '1':
+          navigate('/');
+          break;
+        case '2':
+          navigate('/about');
+          break;
+        case '3':
+          navigate('/services');
+          break;
+        case '4':
+          navigate('/contact');
+          break;
+        default:
+          break;
+      }
     }
-    setDrawerVisible(false); // Cierra el Drawer en dispositivos móviles después de seleccionar
+    setDrawerVisible(false);
   };
 
   const menuItems = [
-    { key: '1', label: 'Home' },
-    { key: '2', label: 'About' },
-    { key: '3', label: 'Services' },
-    { key: '4', label: 'Contact' },
-    { key: '5', label: 'Download' },
+    { key: '1', label: 'Inicio' },
+    { key: '2', label: 'Organa' },
+    { key: '3', label: 'Servicios' },
+    { key: '4', label: 'Contacto' },
+    { key: '5', label: 'Descargar' },
   ];
 
   const dropdownMenuItems = [
@@ -266,11 +540,11 @@ const AppBar: React.FC = () => {
         onClick={(e) => handleMenuClick(e.key)}
         items={menuItems}
       />
-      <div className="avatar-section">
+  {/*     <div className="avatar-section">
         <Dropdown menu={{ items: dropdownMenuItems }} trigger={['click']}>
           <Avatar size="large" icon={<UserOutlined />} />
         </Dropdown>
-      </div>
+      </div> */}
 
       {/* Drawer para dispositivos móviles */}
       <Drawer
@@ -293,6 +567,81 @@ const AppBar: React.FC = () => {
 
 export default AppBar;
 
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\Banner.css
+
+Contenido:
+.banner-container {
+  position: relative;
+  /* Fondo ajustado */
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(253, 253, 255, 0.493);
+  /* Superposición oscura */
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+
+.banner-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transform: translateY(20px);
+  /* Ajuste inicial para el movimiento */
+}
+
+.banner-title.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.banner-title.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+  /* Efecto de salida */
+}
+
+.banner-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.banner-button {
+  background-color: #1890ff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.banner-button:hover {
+  background-color: #40a9ff;
+}
 
 --------------------------------------------------------------------------------
 
@@ -351,30 +700,176 @@ export default Banner;
 
 --------------------------------------------------------------------------------
 
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\Contact.css
+
+Contenido:
+/* General container for the contact form */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-container:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Title and paragraph */
+.contact-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a2a6c;
+  margin-bottom: 10px;
+}
+
+.contact-paragraph {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Form styles */
+.contact-form {
+  width: 100%;
+}
+
+/* Custom input and textarea styling */
+.custom-input,
+.custom-textarea {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.custom-input:focus,
+.custom-textarea:focus {
+  border-color: #1a2a6c;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(26, 42, 108, 0.2);
+  outline: none;
+}
+
+/* Submit button styles */
+.submit-button {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #1a2a6c;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(26, 42, 108, 0.2);
+}
+
+.submit-button:hover {
+  background-color: #404ea1;
+  transform: translateY(-2px);
+}
+
+.submit-button:active {
+  background-color: #1a2a6c;
+  transform: translateY(0);
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 30px 15px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .custom-input,
+  .custom-textarea {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+  }
+}
+
+
+--------------------------------------------------------------------------------
+
 C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\Contact.tsx
 
 Contenido:
-import React from 'react';
-import { Typography, Form, Input, Button } from 'antd';
+import React, { useState } from 'react';
+import { Typography, Form, Input, Button, Modal, notification } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 import './Contact.css';
 
 const { Title, Paragraph } = Typography;
 
 const Contact: React.FC = () => {
+  const [form] = Form.useForm();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleSubmit = (values: any) => {
+    // Aquí enviarías los datos del formulario por correo electrónico
+    // Puedes hacer una llamada a un API o servicio como EmailJS o un backend con Node.js y Nodemailer
+    console.log('Datos del formulario:', values);
+
+    // Mostrar el modal de agradecimiento
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+    form.resetFields(); // Limpiar el formulario después de cerrar el modal
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div className="contact-container">
       <Title level={2} className="contact-title">Contáctanos</Title>
       <Paragraph className="contact-paragraph">
         Si tienes alguna pregunta o necesitas más información sobre nuestros servicios, no dudes en ponerte en contacto con nosotros.
       </Paragraph>
-      <Form className="contact-form" layout="vertical">
-        <Form.Item label="Nombre" name="name" rules={[{ required: true, message: 'Por favor, ingresa tu nombre' }]}>
+      <Form
+        form={form}
+        className="contact-form"
+        layout="vertical"
+        onFinish={handleSubmit}
+      >
+        <Form.Item
+          label="Nombre"
+          name="name"
+          rules={[{ required: true, message: 'Por favor, ingresa tu nombre' }]}
+        >
           <Input className="custom-input" />
         </Form.Item>
-        <Form.Item label="Correo electrónico" name="email" rules={[{ required: true, message: 'Por favor, ingresa tu correo electrónico' }]}>
+        <Form.Item
+          label="Correo electrónico"
+          name="email"
+          rules={[{ 
+            required: true, 
+            type: 'email', 
+            message: 'Por favor, ingresa un correo electrónico válido' 
+          }]}
+        >
           <Input className="custom-input" />
         </Form.Item>
-        <Form.Item label="Mensaje" name="message" rules={[{ required: true, message: 'Por favor, ingresa tu mensaje' }]}>
+        <Form.Item
+          label="Mensaje"
+          name="message"
+          rules={[{ required: true, message: 'Por favor, ingresa tu mensaje' }]}
+        >
           <Input.TextArea className="custom-textarea" />
         </Form.Item>
         <Form.Item>
@@ -383,6 +878,22 @@ const Contact: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
+
+      <Modal
+        title="Gracias por contactarnos"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        okText="Cerrar"
+        cancelButtonProps={{ style: { display: 'none' } }}
+      >
+        <div style={{ textAlign: 'center' }}>
+          <SmileOutlined style={{ fontSize: '48px', color: '#52c41a' }} />
+          <p style={{ marginTop: '16px' }}>
+            ¡Gracias por contactarnos! Nos pondremos en contacto contigo lo antes posible.
+          </p>
+        </div>
+      </Modal>
     </div>
   );
 };
@@ -392,62 +903,242 @@ export default Contact;
 
 --------------------------------------------------------------------------------
 
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\Features.css
+
+Contenido:
+.features-container {
+  padding: 50px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.features-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #4273b3;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.features-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.feature-card .ant-card-meta-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #4273b3;
+}
+
+.feature-card .ant-card-meta-description {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .feature-card img {
+    height: 180px;
+  }
+  
+  .features-title {
+    font-size: 28px;
+  }
+  
+  .feature-card .ant-card-meta-title {
+    font-size: 20px;
+  }
+  
+  .feature-card .ant-card-meta-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .features-title {
+    font-size: 24px;
+  }
+  
+  .feature-card {
+    margin-bottom: 20px;
+  }
+  
+  .feature-card .ant-card-meta-title {
+    font-size: 18px;
+  }
+  
+  .feature-card .ant-card-meta-description {
+    font-size: 14px;
+  }
+}
+
+
+--------------------------------------------------------------------------------
+
 C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\Features.tsx
 
 Contenido:
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Card, Typography } from 'antd';
 import './Features.css';
+import ImageModal from './ImageModal';  // Importar el nuevo componente
 
 const { Meta } = Card;
 
 const features = [
   {
-    title: 'Fácil de Usar',
-    description: 'Organa combina un diseño intuitivo con potentes funcionalidades, permitiéndote gestionar reuniones y tareas desde el primer momento sin curva de aprendizaje.',
-    image: '/src/assets/images/image.png',
+    title: 'Minutas Automatizadas',
+    description: 'Organa transforma cada reunión en resúmenes accionables mediante la IA, generando minutas precisas que destacan los puntos clave y decisiones importantes.',
+    image: '/src/assets/images/minutaAutomatizada.png',
   },
   {
-    title: 'Optimización Inteligente',
-    description: 'Gracias a la Inteligencia Artificial, Organa optimiza automáticamente la gestión de tus reuniones, generando minutas precisas y resúmenes claros para ahorrarte tiempo.',
-    image: '/src/assets/images/image2.png',
+    title: 'Tablero Kanban Interactivo',
+    description: 'Gestiona tus proyectos y tareas diarias con un tablero Kanban visual e interactivo, que facilita la planificación y seguimiento de tus actividades de forma organizada.',
+    image: '/src/assets/images/kanban.png',
   },
   {
-    title: 'Integración Fluida',
-    description: 'Organa se conecta de forma transparente con tus herramientas actuales, permitiéndote integrar IA personalizada mediante API keys y mantener tu flujo de trabajo sin interrupciones.',
-    image: '/src/assets/images/image3.png',
+    title: 'Análisis Avanzado con IA',
+    description: 'Aprovecha el análisis avanzado de tus grabaciones con tecnología de IA, que extrae insights clave y te ayuda a mejorar la toma de decisiones.',
+    image: '/src/assets/images/savedMinutes.png',
   },
   {
-    title: 'Seguridad Avanzada',
-    description: 'Tus datos, grabaciones y tareas están protegidos con encriptación de grado empresarial, asegurando que tu información esté siempre resguardada en cada dispositivo.',
-    image: '/src/assets/images/image4.png',
+    title: 'Sincronización Multiplataforma',
+    description: 'Accede a tus reuniones, minutas y tareas desde cualquier dispositivo con la sincronización automática de Organa, manteniendo tu flujo de trabajo siempre a la mano.',
+    image: '/src/assets/images/sincMultiplataformaCambiarImagen.png',
   },
-
+  {
+    title: 'Grabación en Alta Definición',
+    description: 'Graba tus reuniones en video y audio de alta calidad, asegurando que nunca pierdas un detalle importante con almacenamiento seguro de tus grabaciones.',
+    image: '/src/assets/images/liveOrgana.png',
+  },
+  {
+    title: 'Compatibilidad con Windows',
+    description: 'Organa está diseñada para ofrecer una experiencia optimizada en la plataforma de Windows, aprovechando todas las capacidades de escritorio para una mayor productividad.',
+    image: '/src/assets/images/winCompatib.png',
+  }
 ];
 
 const Features: React.FC = () => {
+  const [selectedFeature, setSelectedFeature] = useState<null | { image: string, title: string }>(null);
+
+  const handleCardClick = (feature: { image: string, title: string }) => {
+    setSelectedFeature(feature);
+  };
+
+  const closeModal = () => {
+    setSelectedFeature(null);
+  };
+
   return (
     <div className="features-container">
       <Typography className="features-title">Gestiona tus actividades diarias</Typography>
-      <Row gutter={[16, 16]}>
+      <Row gutter={[16, 16]} className="features-row">
         {features.map((feature, index) => (
-          <Col xs={8} sm={16} md={8} key={index}>
+          <Col xs={24} sm={12} md={8} key={index}>
             <Card
               hoverable
               cover={<img alt={feature.title} src={feature.image} />}
               className="feature-card"
+              onClick={() => handleCardClick(feature)}  // Abrir el modal con la imagen
             >
               <Meta title={feature.title} description={feature.description} />
             </Card>
           </Col>
         ))}
       </Row>
+
+      {selectedFeature && (
+        <ImageModal
+          visible={!!selectedFeature}
+          onClose={closeModal}
+          imageSrc={selectedFeature.image}
+          title={selectedFeature.title}
+        />
+      )}
     </div>
   );
 };
 
 export default Features;
 
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\ImageModal.tsx
+
+Contenido:
+import React from 'react';
+import { Modal } from 'antd';
+
+interface ImageModalProps {
+  visible: boolean;
+  onClose: () => void;
+  imageSrc: string;
+  title: string;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({ visible, onClose, imageSrc, title }) => {
+  return (
+    <Modal
+      visible={visible}
+      footer={null}
+      onCancel={onClose}
+      centered
+      width="80%"
+    >
+      <img src={imageSrc} alt={title} style={{ width: '100%' }} />
+    </Modal>
+  );
+};
+
+export default ImageModal;
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\Intro.css
+
+Contenido:
+.intro-container {
+  padding: 30px 20px;
+  background-color: #f6feffb0;
+  text-align: center;
+  height: auto;
+}
+
+.intro-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.intro-paragraph {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+}
 
 --------------------------------------------------------------------------------
 
@@ -476,6 +1167,31 @@ const Intro: React.FC = () => {
 
 export default Intro;
 
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\MainLayout.css
+
+Contenido:
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9fafc;
+  }
+  
+  .content-container {
+    flex: 1;
+    padding: 20px;
+    margin-top: 64px; /* Esto asegura que el contenido no se superponga con el AppBar */
+  }
+  
+  @media (max-width: 768px) {
+    .content-container {
+      padding: 10px;
+    }
+  }
+  
 
 --------------------------------------------------------------------------------
 
@@ -512,11 +1228,13 @@ Contenido:
 import Banner from "./Banner"
 import Features from "./Features"
 import Intro from "./Intro"
+import ImageLanding from '../ImageLanding'
 function App() {
 
   return (
     <>
       <Banner />
+      <ImageLanding/>
       <Intro/>
       <Features />
     </>
@@ -524,6 +1242,101 @@ function App() {
 }
 
 export default App
+
+
+--------------------------------------------------------------------------------
+
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\Services.css
+
+Contenido:
+.services-container {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.services-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.services-subtitle {
+  font-size: 18px;
+  color: #636e72;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  font-family: 'Lato', sans-serif;
+}
+
+.services-row {
+  display: flex;
+  justify-content: center;
+}
+
+.service-card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2980b9;
+  margin-top: 15px;
+}
+
+.service-description {
+  font-size: 16px;
+  color: #4a4a4a;
+  line-height: 1.7;
+}
+
+.ant-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-card-cover img {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 32px;
+  }
+
+  .service-title {
+    font-size: 20px;
+  }
+
+  .services-subtitle {
+    font-size: 16px;
+  }
+}
 
 
 --------------------------------------------------------------------------------
@@ -541,25 +1354,31 @@ const Services: React.FC = () => {
   return (
     <div className="services-container">
       <Title level={2} className="services-title">Nuestros Servicios</Title>
-      <Row gutter={[16, 16]}>
+      <Paragraph className="services-subtitle">
+        Organa proporciona soluciones avanzadas impulsadas por IA para empresas que desean optimizar su flujo de trabajo y aumentar la productividad.
+      </Paragraph>
+      <Row gutter={[32, 32]} className="services-row">
         <Col xs={24} sm={12} md={8}>
-          <Card className="service-card" title="Consultoría Empresarial">
-            <Paragraph>
-              Ofrecemos servicios de consultoría para optimizar tus procesos y maximizar el rendimiento de tu negocio.
+          <Card className="service-card" hoverable cover={<img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Consultoría Empresarial" />}>
+            <Title level={3} className="service-title">Consultoría Empresarial</Title>
+            <Paragraph className="service-description">
+              Optimiza tus procesos empresariales con estrategias basadas en datos y análisis profundo para maximizar tu rendimiento.
             </Paragraph>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card className="service-card" title="Integración con IA">
-            <Paragraph>
-              Integramos inteligencia artificial para ayudar a automatizar tareas y mejorar la toma de decisiones.
+          <Card className="service-card" hoverable cover={<img style={{ marginLeft: '90px', width: '200px', height: '200px', }} src="src/assets\images\gpt.png" alt="Integración con IA" />}>
+            <Title level={3} className="service-title">Integración con IA</Title>
+            <Paragraph className="service-description">
+              Automatiza tareas críticas con modelos de IA personalizados, mejorando la toma de decisiones en tiempo real.
             </Paragraph>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <Card className="service-card" title="Soporte Técnico">
-            <Paragraph>
-              Nuestro equipo de soporte está disponible 24/7 para garantizar que todo funcione sin interrupciones.
+          <Card className="service-card" hoverable cover={<img src="https://images.unsplash.com/photo-1501770118606-b1d640526693?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Soporte Técnico" />}>
+            <Title level={3} className="service-title">Soporte Técnico 24/7</Title>
+            <Paragraph className="service-description">
+              Disponibilidad continua para garantizar que tus operaciones funcionen sin interrupciones, con expertos a tu disposición.
             </Paragraph>
           </Card>
         </Col>

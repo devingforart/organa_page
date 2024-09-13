@@ -1,0 +1,46 @@
+.descarga-container {
+    background: linear-gradient(135deg, #fbf9fc 0%, #e7efff 40%);
+    padding: 60px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+  }
+  
+  .descarga-content {
+    color: white;
+    text-align: left;
+  }
+  
+  .descarga-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .descarga-paragraph {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .descarga-button {
+    background-color: #ff4d4f;
+    border: none;
+    font-size: 18px;
+    padding: 12px 40px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .descarga-button:hover {
+    background-color: #ff7875;
+  }
+  
+  .descarga-image {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
