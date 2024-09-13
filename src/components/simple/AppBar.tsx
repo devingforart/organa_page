@@ -47,7 +47,6 @@ const AppBar: React.FC = () => {
     }
     setDrawerVisible(false);
   };
-  // Resto del código...
 
   const menuItems = [
     { key: '1', label: 'Inicio' },
@@ -81,11 +80,11 @@ const AppBar: React.FC = () => {
         onClick={(e) => handleMenuClick(e.key)}
         items={menuItems}
       />
-      <div className="avatar-section">
+  {/*     <div className="avatar-section">
         <Dropdown menu={{ items: dropdownMenuItems }} trigger={['click']}>
           <Avatar size="large" icon={<UserOutlined />} />
         </Dropdown>
-      </div>
+      </div> */}
 
       {/* Drawer para dispositivos móviles */}
       <Drawer
