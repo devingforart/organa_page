@@ -18,15 +18,15 @@ const features = [
   },
   {
     title: 'Análisis Avanzado con IA',
-    description: 'Aprovecha el análisis avanzado de tus grabaciones con tecnología de IA, que extrae insights clave y te ayuda a mejorar la toma de decisiones.',
+    description: 'Aprovecha el análisis avanzado de tus grabaciones con tecnología de IA, que extrae insights clave y te ayuda a organizarte y  a mejorar la toma de decisiones.',
     image: '/src/assets/images/savedMinutes.png',
   },
-  {
+/*   {
     title: 'Sincronización Multiplataforma',
     description: 'Accede a tus reuniones, minutas y tareas desde cualquier dispositivo con la sincronización automática de Organa, manteniendo tu flujo de trabajo siempre a la mano.',
-    image: '/src/assets/images/sincMultiplataformaCambiarImagen.png',
-  },
-  {
+    image: '/src/assets/images/sincMultiplataformaCambiarImagen.png',w
+  }, */
+/*   {
     title: 'Grabación en Alta Definición',
     description: 'Graba tus reuniones en video y audio de alta calidad, asegurando que nunca pierdas un detalle importante con almacenamiento seguro de tus grabaciones.',
     image: '/src/assets/images/liveOrgana.png',
@@ -35,7 +35,7 @@ const features = [
     title: 'Compatibilidad con Windows',
     description: 'Organa está diseñada para ofrecer una experiencia optimizada en la plataforma de Windows, aprovechando todas las capacidades de escritorio para una mayor productividad.',
     image: '/src/assets/images/winCompatib.png',
-  }
+  } */
 ];
 
 const Features: React.FC = () => {

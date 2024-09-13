@@ -7,8 +7,9 @@ function App() {
   return (
     <>
       <Banner />
-      <ImageLanding/>
-      <Intro/>
+      <Intro />
+
+      <ImageLanding />
       <Features />
     </>
   )
