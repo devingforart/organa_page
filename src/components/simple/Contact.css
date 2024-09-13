@@ -1,0 +1,96 @@
+/* General container for the contact form */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-container:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Title and paragraph */
+.contact-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a2a6c;
+  margin-bottom: 10px;
+}
+
+.contact-paragraph {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Form styles */
+.contact-form {
+  width: 100%;
+}
+
+/* Custom input and textarea styling */
+.custom-input,
+.custom-textarea {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.custom-input:focus,
+.custom-textarea:focus {
+  border-color: #1a2a6c;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(26, 42, 108, 0.2);
+  outline: none;
+}
+
+/* Submit button styles */
+.submit-button {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #1a2a6c;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(26, 42, 108, 0.2);
+}
+
+.submit-button:hover {
+  background-color: #404ea1;
+  transform: translateY(-2px);
+}
+
+.submit-button:active {
+  background-color: #1a2a6c;
+  transform: translateY(0);
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 30px 15px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .custom-input,
+  .custom-textarea {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+  }
+}

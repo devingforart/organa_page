@@ -1,0 +1,19 @@
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9fafc;
+  }
+  
+  .content-container {
+    flex: 1;
+    padding: 20px;
+    margin-top: 64px; /* Esto asegura que el contenido no se superponga con el AppBar */
+  }
+  
+  @media (max-width: 768px) {
+    .content-container {
+      padding: 10px;
+    }
+  }
+  

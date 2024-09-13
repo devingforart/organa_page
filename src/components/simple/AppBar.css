@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #f9f9f9;
+  --primary-color: #ffffff;
   --secondary-color: #c4e0e5;
   --accent-color: #a7bed3;
   --text-color: #444;
@@ -25,7 +25,7 @@
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--text-color);
-  
+
 }
 
 .menu-items {
@@ -56,6 +56,8 @@
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
 }
+
+
 
 @media (max-width: 768px) {
   .menu-items {
