@@ -1,0 +1,17 @@
+/* Asegura que la imagen esté centrada y no cause overflow */
+.intro-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente si es necesario */
+    padding: 20px;
+    overflow-x: hidden; /* Evita el overflow horizontal */
+  }
+  
+  .landing-image {
+    width: auto; /* Ajusta el ancho dinámicamente */
+    height: auto; /* Ajusta la altura según el aspecto de la imagen */
+    max-width: 100%; /* Evita que la imagen sea más grande que el contenedor */
+    object-fit: contain; /* Mantén las proporciones sin recortar */
+    display: block; /* Para asegurarse de que la imagen no se considere inline */
+  }
+  
