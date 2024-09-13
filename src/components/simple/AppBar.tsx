@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Layout, Menu, Avatar, Dropdown, Button, Drawer } from 'antd';
 import { MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { selectMenuItem } from '../../features/menuSlice';
@@ -9,17 +8,30 @@ import './AppBar.css';
 
 const { Header } = Layout;
 
+import { useNavigate } from 'react-router-dom';
+
 const AppBar: React.FC = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const dispatch = useDispatch();
   const selectedKey = useSelector((state: RootState) => state.menu.selectedKey);
-  const navigate = useNavigate(); // Hook de React Router para la navegación
+  const navigate = useNavigate(); // Para navegar entre rutas
 
-  const handleMenuClick = (key: string) => {
+  const handleMenuClick = async (key: string) => {
     if (key === '5') {
-      window.location.href = 'https://github.com/devingforart/organa_updater/releases/latest/download/Organa_2.3.0_x64-setup.exe';
+      try {
+        const response = await fetch('https://api.github.com/repos/devingforart/organa_updater/releases/latest');
+        const data = await response.json();
+        const downloadUrl = data.assets[0].browser_download_url;
+        window.location.href = downloadUrl;
+      } catch (error) {
+        console.error('Error al obtener el último release:', error);
+      }
     } else {
+      dispatch(selectMenuItem(key));
       switch (key) {
+        case '1':
+          navigate('/');
+          break;
         case '2':
           navigate('/about');
           break;
@@ -30,19 +42,19 @@ const AppBar: React.FC = () => {
           navigate('/contact');
           break;
         default:
-          navigate('/');
+          break;
       }
     }
-    dispatch(selectMenuItem(key));
     setDrawerVisible(false);
   };
+  // Resto del código...
 
   const menuItems = [
-    { key: '1', label: 'Home' },
-    { key: '2', label: 'About' },
-    { key: '3', label: 'Services' },
-    { key: '4', label: 'Contact' },
-    { key: '5', label: 'Download' },
+    { key: '1', label: 'Inicio' },
+    { key: '2', label: 'Organa' },
+    { key: '3', label: 'Servicios' },
+    { key: '4', label: 'Contacto' },
+    { key: '5', label: 'Descargar' },
   ];
 
   const dropdownMenuItems = [
@@ -59,7 +71,7 @@ const AppBar: React.FC = () => {
           type="primary"
           icon={<MenuUnfoldOutlined />}
           className="mobile-menu-icon"
-          onClick={() => setDrawerVisible(true)}
+          onClick={() => setDrawerVisible(true)} // Mostrar Drawer en móviles
         />
       </div>
       <Menu
@@ -75,11 +87,12 @@ const AppBar: React.FC = () => {
         </Dropdown>
       </div>
 
+      {/* Drawer para dispositivos móviles */}
       <Drawer
         title="Menu"
         placement="left"
         closable={true}
-        onClose={() => setDrawerVisible(false)}
+        onClose={() => setDrawerVisible(false)} // Cerrar Drawer
         visible={drawerVisible}
       >
         <Menu

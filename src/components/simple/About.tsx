@@ -32,7 +32,7 @@ const About: React.FC = () => {
               hoverable
               title="Grabación en tiempo real"
               bordered={false}
-              className="feature-card"
+              className="about-card"
             >
               <Paragraph>
                 Captura audio y video de alta calidad en tiempo real durante tus reuniones y genera minutas automáticas con IA.
@@ -44,7 +44,7 @@ const About: React.FC = () => {
               hoverable
               title="Tablero Kanban"
               bordered={false}
-              className="feature-card"
+              className="about-card"
             >
               <Paragraph>
                 Organiza tus actividades diarias con un tablero Kanban visual que facilita la planificación y seguimiento de proyectos.
@@ -56,7 +56,7 @@ const About: React.FC = () => {
               hoverable
               title="Gestión de API Keys de IA"
               bordered={false}
-              className="feature-card"
+              className="about-card"
             >
               <Paragraph>
                 Conecta con diferentes modelos de IA utilizando tus propias claves API y personaliza los análisis y resúmenes.
@@ -83,7 +83,7 @@ const About: React.FC = () => {
               <Paragraph>
                 "Organa ha transformado la manera en que gestionamos nuestras reuniones. Las minutas automáticas nos han ahorrado horas de trabajo cada semana."
               </Paragraph>
-              <Paragraph>- Juan Pérez, CEO de Empresa X</Paragraph>
+              <Paragraph>- Andrea Viviana Herreraa, CEO de Empresa Dumpling softwarae</Paragraph>
             </Card>
           </Col>
           <Col xs={24} sm={12}>
@@ -91,7 +91,7 @@ const About: React.FC = () => {
               <Paragraph>
                 "El tablero Kanban integrado en Organa es una herramienta indispensable para mantener nuestro equipo sincronizado y enfocado."
               </Paragraph>
-              <Paragraph>- María García, Gerente de Proyecto</Paragraph>
+              <Paragraph>- Verónica Ronis, Gerente de Proyecto</Paragraph>
             </Card>
           </Col>
         </Row>

@@ -1,22 +1,88 @@
 .features-container {
-    padding: 50px 20px;
-    background-color: #f9fdff86;
-    text-align: center;
+  padding: 50px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.features-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #1a2a6c;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.features-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: left;
+  background-color: #ffffff;
+  display: flex;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.feature-card .ant-card-meta-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a2a6c;
+}
+
+.feature-card .ant-card-meta-description {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .feature-card img {
+    height: 180px;
   }
   
   .features-title {
-    font-size: 36px;
-    margin-bottom: 40px;
-    color: #333;
+    font-size: 28px;
+  }
+  
+  .feature-card .ant-card-meta-title {
+    font-size: 20px;
+  }
+  
+  .feature-card .ant-card-meta-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .features-title {
+    font-size: 24px;
   }
   
   .feature-card {
-    border-radius: 10px;
+    margin-bottom: 20px;
   }
   
-  .feature-card img {
-    border-radius: 10px 10px 0 0;
-    height: 200px;
-    object-fit: cover;
+  .feature-card .ant-card-meta-title {
+    font-size: 18px;
   }
   
+  .feature-card .ant-card-meta-description {
+    font-size: 14px;
+  }
+}

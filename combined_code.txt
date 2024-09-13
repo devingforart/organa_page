@@ -3,19 +3,20 @@ C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\App.tsx
 Contenido:
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainPage from './components/simple/MainPage';
+import MainLayout from './components/simple/MainLayout'; // Layout principal
 import About from './components/simple/About';
 import Services from './components/simple/Services';
 import Contact from './components/simple/Contact';
+import MainPage from './components/simple/MainPage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<MainLayout><MainPage /></MainLayout>} />
+        <Route path="/about" element={<MainLayout><About /></MainLayout>} />
+        <Route path="/services" element={<MainLayout><Services /></MainLayout>} />
+        <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
       </Routes>
     </Router>
   );
@@ -88,7 +89,7 @@ C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simpl
 
 Contenido:
 import React from 'react';
-import { Typography } from 'antd';
+import { Typography, Row, Col, Card } from 'antd';
 import './About.css';
 
 const { Title, Paragraph } = Typography;
@@ -96,17 +97,95 @@ const { Title, Paragraph } = Typography;
 const About: React.FC = () => {
   return (
     <div className="about-container">
+      {/* Título principal */}
       <Title level={2} className="about-title">Acerca de Organa</Title>
+
+      {/* Descripción general */}
       <Paragraph className="about-paragraph">
-        Organa es una plataforma revolucionaria diseñada para optimizar procesos empresariales de forma eficaz y segura.
-        Nuestro enfoque está en simplificar la gestión diaria de las operaciones, con una tecnología avanzada que garantiza
-        un rendimiento rápido y estable.
+        Organa es una plataforma integral diseñada para optimizar la gestión de reuniones y actividades diarias, aprovechando la Inteligencia Artificial (IA) para mejorar la eficiencia. Con funciones como la grabación en tiempo real, la generación automática de minutas, y un tablero Kanban, Organa ofrece una solución completa para la productividad.
       </Paragraph>
-      <Paragraph className="about-paragraph">
-        Con Organa, puedes gestionar tus proyectos, supervisar el progreso, y mejorar la eficiencia en todo momento. 
-        Integramos inteligencia artificial avanzada, ofreciendo herramientas de análisis que permiten tomar decisiones 
-        informadas en tiempo real.
-      </Paragraph>
+
+      {/* Visión y misión */}
+      <div className="section">
+        <Title level={3} className="section-title">Visión y Misión</Title>
+        <Paragraph className="about-paragraph">
+          Nuestra misión es empoderar a los profesionales modernos con herramientas que mejoren su productividad y organización diaria. Creemos en la tecnología como un aliado para optimizar el tiempo y facilitar la toma de decisiones.
+        </Paragraph>
+      </div>
+
+      {/* Funcionalidades Clave */}
+      <div className="section">
+        <Title level={3} className="section-title">Funcionalidades Clave</Title>
+        <Row gutter={[24, 24]} justify="center">
+          <Col xs={24} sm={12} md={8}>
+            <Card
+              hoverable
+              title="Grabación en tiempo real"
+              bordered={false}
+              className="feature-card"
+            >
+              <Paragraph>
+                Captura audio y video de alta calidad en tiempo real durante tus reuniones y genera minutas automáticas con IA.
+              </Paragraph>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} md={8}>
+            <Card
+              hoverable
+              title="Tablero Kanban"
+              bordered={false}
+              className="feature-card"
+            >
+              <Paragraph>
+                Organiza tus actividades diarias con un tablero Kanban visual que facilita la planificación y seguimiento de proyectos.
+              </Paragraph>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} md={8}>
+            <Card
+              hoverable
+              title="Gestión de API Keys de IA"
+              bordered={false}
+              className="feature-card"
+            >
+              <Paragraph>
+                Conecta con diferentes modelos de IA utilizando tus propias claves API y personaliza los análisis y resúmenes.
+              </Paragraph>
+            </Card>
+          </Col>
+        </Row>
+      </div>
+
+      {/* Tecnologías */}
+      <div className="section">
+        <Title level={3} className="section-title">Tecnologías Usadas</Title>
+        <Paragraph className="about-paragraph">
+          Organa está desarrollada en Rust, uno de los lenguajes más seguros y eficientes del mundo, lo que garantiza un rendimiento robusto y estable. Además, integra modelos avanzados de IA, como GPT, para ofrecer análisis automatizados y resúmenes detallados de las reuniones.
+        </Paragraph>
+      </div>
+
+      {/* Testimonios */}
+      <div className="section">
+        <Title level={3} className="section-title">Testimonios</Title>
+        <Row gutter={[24, 24]} justify="center">
+          <Col xs={24} sm={12}>
+            <Card hoverable className="testimonial-card">
+              <Paragraph>
+                "Organa ha transformado la manera en que gestionamos nuestras reuniones. Las minutas automáticas nos han ahorrado horas de trabajo cada semana."
+              </Paragraph>
+              <Paragraph>- Andrea Viviana Herreraa, CEO de Empresa Dumpling softwarae</Paragraph>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12}>
+            <Card hoverable className="testimonial-card">
+              <Paragraph>
+                "El tablero Kanban integrado en Organa es una herramienta indispensable para mantener nuestro equipo sincronizado y enfocado."
+              </Paragraph>
+              <Paragraph>- Verónica Ronis, Gerente de Proyecto</Paragraph>
+            </Card>
+          </Col>
+        </Row>
+      </div>
     </div>
   );
 };
@@ -122,7 +201,6 @@ Contenido:
 import React, { useState } from 'react';
 import { Layout, Menu, Avatar, Dropdown, Button, Drawer } from 'antd';
 import { MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { selectMenuItem } from '../../features/menuSlice';
@@ -131,31 +209,29 @@ import './AppBar.css';
 const { Header } = Layout;
 
 const AppBar: React.FC = () => {
-  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [drawerVisible, setDrawerVisible] = useState(false); // Estado para manejar el Drawer en móviles
   const dispatch = useDispatch();
   const selectedKey = useSelector((state: RootState) => state.menu.selectedKey);
-  const navigate = useNavigate(); // Hook de React Router para la navegación
 
-  const handleMenuClick = (key: string) => {
+  const handleMenuClick = async (key: string) => {
     if (key === '5') {
-      window.location.href = 'https://github.com/devingforart/organa_updater/releases/latest/download/Organa_2.3.0_x64-setup.exe';
-    } else {
-      switch (key) {
-        case '2':
-          navigate('/about');
-          break;
-        case '3':
-          navigate('/services');
-          break;
-        case '4':
-          navigate('/contact');
-          break;
-        default:
-          navigate('/');
+      try {
+        // Hacer una solicitud a la API de GitHub para obtener el último release
+        const response = await fetch('https://api.github.com/repos/devingforart/organa_updater/releases/latest');
+        const data = await response.json();
+
+        // Obtener el nombre del archivo del primer asset del release
+        const downloadUrl = data.assets[0].browser_download_url;
+
+        // Redirigir a la descarga del archivo
+        window.location.href = downloadUrl;
+      } catch (error) {
+        console.error('Error al obtener el último release:', error);
       }
+    } else {
+      dispatch(selectMenuItem(key));
     }
-    dispatch(selectMenuItem(key));
-    setDrawerVisible(false);
+    setDrawerVisible(false); // Cierra el Drawer en dispositivos móviles después de seleccionar
   };
 
   const menuItems = [
@@ -180,7 +256,7 @@ const AppBar: React.FC = () => {
           type="primary"
           icon={<MenuUnfoldOutlined />}
           className="mobile-menu-icon"
-          onClick={() => setDrawerVisible(true)}
+          onClick={() => setDrawerVisible(true)} // Mostrar Drawer en móviles
         />
       </div>
       <Menu
@@ -196,11 +272,12 @@ const AppBar: React.FC = () => {
         </Dropdown>
       </div>
 
+      {/* Drawer para dispositivos móviles */}
       <Drawer
         title="Menu"
         placement="left"
         closable={true}
-        onClose={() => setDrawerVisible(false)}
+        onClose={() => setDrawerVisible(false)} // Cerrar Drawer
         visible={drawerVisible}
       >
         <Menu
@@ -290,18 +367,20 @@ const Contact: React.FC = () => {
       <Paragraph className="contact-paragraph">
         Si tienes alguna pregunta o necesitas más información sobre nuestros servicios, no dudes en ponerte en contacto con nosotros.
       </Paragraph>
-      <Form className="contact-form">
+      <Form className="contact-form" layout="vertical">
         <Form.Item label="Nombre" name="name" rules={[{ required: true, message: 'Por favor, ingresa tu nombre' }]}>
-          <Input />
+          <Input className="custom-input" />
         </Form.Item>
         <Form.Item label="Correo electrónico" name="email" rules={[{ required: true, message: 'Por favor, ingresa tu correo electrónico' }]}>
-          <Input />
+          <Input className="custom-input" />
         </Form.Item>
         <Form.Item label="Mensaje" name="message" rules={[{ required: true, message: 'Por favor, ingresa tu mensaje' }]}>
-          <Input.TextArea />
+          <Input.TextArea className="custom-textarea" />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">Enviar</Button>
+          <Button type="primary" htmlType="submit" className="submit-button">
+            Enviar
+          </Button>
         </Form.Item>
       </Form>
     </div>
@@ -325,24 +404,25 @@ const { Meta } = Card;
 const features = [
   {
     title: 'Fácil de Usar',
-    description: 'Organa está diseñada para ser intuitiva y fácil de usar desde el primer momento.',
+    description: 'Organa combina un diseño intuitivo con potentes funcionalidades, permitiéndote gestionar reuniones y tareas desde el primer momento sin curva de aprendizaje.',
     image: '/src/assets/images/image.png',
   },
   {
-    title: 'Optimización Automática',
-    description: 'Automatiza tus procesos y mejora la eficiencia de tu negocio con nuestras herramientas avanzadas.',
+    title: 'Optimización Inteligente',
+    description: 'Gracias a la Inteligencia Artificial, Organa optimiza automáticamente la gestión de tus reuniones, generando minutas precisas y resúmenes claros para ahorrarte tiempo.',
     image: '/src/assets/images/image2.png',
   },
   {
-    title: 'Integración Total',
-    description: 'Se integra perfectamente con las herramientas más utilizadas para que no tengas que cambiar nada.',
+    title: 'Integración Fluida',
+    description: 'Organa se conecta de forma transparente con tus herramientas actuales, permitiéndote integrar IA personalizada mediante API keys y mantener tu flujo de trabajo sin interrupciones.',
     image: '/src/assets/images/image3.png',
   },
   {
-    title: 'Seguridad de Datos',
-    description: 'Tus datos están siempre seguros con nuestra tecnología de encriptación avanzada.',
+    title: 'Seguridad Avanzada',
+    description: 'Tus datos, grabaciones y tareas están protegidos con encriptación de grado empresarial, asegurando que tu información esté siempre resguardada en cada dispositivo.',
     image: '/src/assets/images/image4.png',
   },
+
 ];
 
 const Features: React.FC = () => {
@@ -351,7 +431,7 @@ const Features: React.FC = () => {
       <Typography className="features-title">Gestiona tus actividades diarias</Typography>
       <Row gutter={[16, 16]}>
         {features.map((feature, index) => (
-          <Col xs={24} sm={12} md={6} key={index}>
+          <Col xs={8} sm={16} md={8} key={index}>
             <Card
               hoverable
               cover={<img alt={feature.title} src={feature.image} />}
@@ -399,10 +479,36 @@ export default Intro;
 
 --------------------------------------------------------------------------------
 
+C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\MainLayout.tsx
+
+Contenido:
+import React from 'react';
+import AppBar from '../simple/AppBar';
+import './MainLayout.css'; // Estilos para el layout general
+
+interface MainLayoutProps {
+  children: React.ReactNode;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  return (
+    <div className="main-layout">
+      <AppBar />
+      <div className="content-container">
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export default MainLayout;
+
+
+--------------------------------------------------------------------------------
+
 C:/Users/southAToms/Desktop/develop/organa_page/organa_page/src\components\simple\MainPage.tsx
 
 Contenido:
-import AppBar from "./AppBar"
 import Banner from "./Banner"
 import Features from "./Features"
 import Intro from "./Intro"
@@ -410,7 +516,6 @@ function App() {
 
   return (
     <>
-      <AppBar />
       <Banner />
       <Intro/>
       <Features />
